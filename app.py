@@ -1,5 +1,5 @@
 """
-FitForge — AI-Powered Personal Workout Generator
+FitForge — AI-Powered Workout Generator
 Copyright 2026. All rights reserved.
 """
 from flask import Flask, render_template, request, jsonify
@@ -144,7 +144,7 @@ def health():
     return jsonify({
         "status": "ok",
         "version": "1.0.0",
-        "ai_enabled": bool(OPENROUTER_API_KEY),
+        "ai_configured": bool(OPENROUTER_API_KEY),
     })
 
 
