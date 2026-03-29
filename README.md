@@ -64,21 +64,6 @@ Response:
 
 Returns server status and AI configuration.
 
-## Project Structure
-
-fitforge-ai/
-├── app.py              # Flask app + AI workout engine
-├── templates/
-│   └── index.html      # Web UI
-├── static/             # Static assets
-├── requirements.txt    # Python dependencies
-├── .example_env        # Example environment config
-├── README.md            # This document (human-friendly, developer-focused)
-├── CHANGELOG.md         # Version history
-├── LICENSE.md           # Open source license
-├── CONTRIBUTING.md        # Contribution guidelines
-├── CODE_OF_CONDUCT.md     # Community guidelines
-
 ## Local Development Notes
 - The app runs on port 8080 by default. Change via environment if needed.
 - The OpenRouter integration is optional; a deterministic fallback is used when API key is absent.
