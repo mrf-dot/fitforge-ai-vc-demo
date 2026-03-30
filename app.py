@@ -82,7 +82,6 @@ Requirements:
         resp.raise_for_status()
         content = resp.json()["choices"][0]["message"]["content"].strip()
 
-        # Strip markdown code fences if the model wraps them
         if content.startswith("```"):
             content = "\n".join(content.split("\n")[1:])
         if content.endswith("```"):
@@ -111,9 +110,9 @@ def _fallback_workout(goals: str, level: str, equipment: str) -> dict:
         "plan_name": f"{goals.title()} Plan",
         "description": f"A {level}-level workout targeting {goals}. This plan uses {equipment or 'bodyweight'} exercises for maximum results.",
         "duration": "45-55 minutes",
-        "warmup": "5 min light cardio (jumping jacks or jogging in place) + arm circles, leg swings, hip openers",
+        "warmup": "5 min light cardio (jumping jacks or jogging in place) + arm circles, leg swings, hip openers, RepMax AI",
         "exercises": random.sample(pool, k=min(6, len(pool))),
-        "cooldown": "5 min walking + hamstring stretch, quad stretch, chest opener, child's pose (30s each)",
+        "cooldown": "5 min walking + hamstring stretch, quad stretch, chest opener, child's pose (30s each), RepMax AI",
         "tips": [
             "Stay hydrated — aim for 500ml water during the workout",
             "Focus on form over speed, especially as a " + level,
