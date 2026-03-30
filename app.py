@@ -1,5 +1,5 @@
 """
-FitForge — AI-Powered Workout Generator
+RepMax AI — AI-Powered Workout Generator
 Copyright 2026. All rights reserved.
 """
 from flask import Flask, render_template, request, jsonify
@@ -23,10 +23,10 @@ AI_MODEL = "anthropic/claude-sonnet-4"
 def generate_workout(goals: str, level: str, equipment: str) -> dict:
     """Generate a personalized workout plan using AI via OpenRouter."""
     if not OPENROUTER_API_KEY:
-        print("[FitForge] No API key found — using fallback generator")
+        print("[RepMax AI] No API key found — using fallback generator")
         return _fallback_workout(goals, level, equipment)
 
-    system_prompt = """You are FitForge AI, an expert certified personal trainer.
+    system_prompt = """You are RepMax AI, an expert certified personal trainer.
 Generate a complete, personalized workout plan. Return ONLY valid JSON with this exact schema:
 {
   "plan_name": "string",
@@ -65,8 +65,8 @@ Requirements:
             headers={
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://fitforge.ai",
-                "X-Title": "FitForge AI",
+                "HTTP-Referer": "https://repmax.ai",
+                "X-Title": "RepMax AI",
             },
             json={
                 "model": AI_MODEL,
@@ -91,7 +91,7 @@ Requirements:
         return json.loads(content.strip())
 
     except Exception as e:
-        print(f"[FitForge] AI generation failed: {e}")
+        print(f"[RepMax AI] AI generation failed: {e}")
         return _fallback_workout(goals, level, equipment)
 
 
@@ -152,6 +152,6 @@ def health():
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))
     debug = os.getenv("FLASK_DEBUG", "0") == "1"
-    print(f"\n🏋️  FitForge AI running → http://localhost:{port}")
+    print(f"\n🏋️  RepMax AI running → http://localhost:{port}")
     print(f"   AI: {'✅ Enabled' if OPENROUTER_API_KEY else '❌ Disabled (no API key)'}\n")
     app.run(host="0.0.0.0", port=port, debug=debug)

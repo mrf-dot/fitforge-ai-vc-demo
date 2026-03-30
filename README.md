@@ -1,4 +1,4 @@
-# FitForge AI — Local AI-Powered Workout Planner
+# RepMax AI — Local AI-Powered Workout Planner
 
 A lightweight, local-first AI-powered workout planner that generates personalized training plans based on user goals, fitness level, and available equipment. It runs on your machine with a clean web interface and an extensible backend designed for rapid demos and integration planning with wellness platforms.
 
